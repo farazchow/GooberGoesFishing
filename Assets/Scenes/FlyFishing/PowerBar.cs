@@ -16,12 +16,15 @@ public class PowerBar : MonoBehaviour
     // Public Variables
     public float maxForce = 10f;
     public float cameraPadding = 3f;
+    public float minimumY = -6.5f;
+    public float maximumX = 5f;
 
     private float movementRange = 192F;
     public float arrowSpeed = 5F;
     private bool stopped;
     private InputAction stopAction;
     private Camera orthoCam;
+    private float screenAspect;
 
     // Bar Segments
     private float redRange = 32F;
@@ -42,16 +45,8 @@ public class PowerBar : MonoBehaviour
         redRange = (xScale * redRange / 100) + orangeRange;
         stopAction = InputSystem.actions.FindAction("General Action");
         stopped = false;
-
-        // Camera Calculations
-        GameObject background = mainCamera.transform.GetChild(0).gameObject;
+        screenAspect = (float)Screen.width / (float)Screen.height;
         orthoCam = mainCamera.GetComponent<Camera>();
-        float screenAspect = (float)Screen.width / (float)Screen.height;
-        float camHalfHeight = orthoCam.orthographicSize;
-        float camHalfWidth = screenAspect * camHalfHeight;
-        float camWidth = 2.0f * camHalfWidth;
-
-        
     }
 
     // Update is called once per frame
@@ -59,9 +54,10 @@ public class PowerBar : MonoBehaviour
     {
         if (stopped)
         {
+            scaleCamera();
             return;
         }
-        if (stopAction.WasPerformedThisFrame())
+        else if (stopAction.WasPerformedThisFrame())
         {
             Debug.Log("Stop detected");
             stopArrow();
@@ -118,5 +114,22 @@ public class PowerBar : MonoBehaviour
         lure.GetComponent<Rigidbody2D>().simulated = true;
         Vector2 force = maxForce * forcePercentage * new Vector2(-1, 1).normalized;
         lure.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+    }
+
+    void scaleCamera()
+    {
+        float camHalfHeight = orthoCam.orthographicSize;
+        float camHalfWidth = screenAspect * camHalfHeight;
+
+        if (Math.Abs(lure.transform.position.x) > camHalfWidth + mainCamera.transform.position.x - cameraPadding)
+        {
+            // Camera Calculations
+            float newHalfWidth = (maximumX - lure.transform.position.x + cameraPadding) / 2;
+            float newHalfHeight = newHalfWidth / screenAspect;
+
+            // Camera Adjustments
+            mainCamera.transform.position = new Vector3(maximumX-newHalfWidth, newHalfHeight + minimumY, mainCamera.transform.position.z);
+            orthoCam.orthographicSize = newHalfHeight;
+        }
     }
 }
