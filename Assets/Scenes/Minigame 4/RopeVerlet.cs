@@ -112,9 +112,10 @@ public class RopeVerlet : MonoBehaviour
             RopeSegment nextSegment = ropeSegments[i + 1];
 
             float distanceBetweenSegments = (currentSegment.CurrentPosition - nextSegment.CurrentPosition).magnitude;
-            float difference = distanceBetweenSegments - ropeSegmentLength;
+            float difference =  Mathf.Clamp(distanceBetweenSegments - ropeSegmentLength, -correctionClampAmount, correctionClampAmount);
 
             Vector2 changeVector = (currentSegment.CurrentPosition - nextSegment.CurrentPosition).normalized * difference;
+
 
             if (i != 0)
             {

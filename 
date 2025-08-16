@@ -1,0 +1,53 @@
+[33mcommit 686257fd61fff9db8d7410c4fd999984980b6672[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Thu Aug 7 16:23:06 2025 -0400
+
+    stage changes
+
+[33mcommit 3e14ebe7c8e55391383b2372976a8b3e23b789a4[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Thu Aug 7 16:16:15 2025 -0400
+
+    test environment
+
+[33mcommit 726a5d8e959908237c33d84e4d9ca365944de265[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Thu Aug 7 16:07:15 2025 -0400
+
+    basic rope with basic physics and collisons
+
+[33mcommit cbc501982bac671703b9a5faaaadc7eccda3d70d[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Mon Aug 4 21:52:28 2025 -0400
+
+    game 4: added predator fish spawning and obstacle scrolling
+
+[33mcommit fdd50a6fa7da5c074d76b907482fefbd0b2608e7[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Mon Aug 4 17:51:41 2025 -0400
+
+    caught and predator fish without collision box for game 4
+
+[33mcommit 7bbee95158286e1a689c152a8fb96fa1d16ba464[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Sat Aug 2 19:09:22 2025 -0400
+
+    scale camera with fishing lure
+
+[33mcommit 3eb6e1dced885bfdf3ff11882037f832c0665d76[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Sat Aug 2 00:04:59 2025 -0400
+
+    merge with new sprites
+
+[33mcommit 4873b32e7014cbcec299f42cb25b73faaf34b157[m
+Author: farazchow <farazchow@gmail.com>
+Date:   Thu Jul 31 18:06:07 2025 -0400
+
+    Track large assets with Git LFS
+
+[33mcommit 496b316905a9d6d167123ea580672c9280cc5c29[m
+Author: Faraz Chowdhury <92059017+farazchow@users.noreply.github.com>
+Date:   Thu Jul 31 08:05:02 2025 -0400
+
+    Initial commit
