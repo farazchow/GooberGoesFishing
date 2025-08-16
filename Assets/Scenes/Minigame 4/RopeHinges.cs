@@ -31,8 +31,7 @@ public class RopeHinges : MonoBehaviour
             startPosition.y -= _segmentLength;
         }
 
-        GameObject anchor = new GameObject("Anchor");
-        _anchor = Instantiate(anchor, _ropeSegments[0].transform.localPosition, Quaternion.identity, gameObject.transform);
+        _anchor = Instantiate(new GameObject("Anchor"), _ropeSegments[0].transform.localPosition, Quaternion.identity, gameObject.transform);
         _anchor.transform.localScale = new Vector3(_segmentWidth, _segmentLength, 1);
         _anchor.AddComponent<Rigidbody2D>();
         _anchor.AddComponent<HingeJoint2D>().anchor = _ropeSegments[0].GetComponent<HingeJoint2D>().anchor;
