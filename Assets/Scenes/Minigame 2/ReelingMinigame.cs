@@ -31,7 +31,7 @@ public class ReelingMinigame : MonoBehaviour
             playerScaleX += scaleAmount;
             playerScaleY += scaleAmount;
             mashPresses++;
-            Debug.Log($"Mashed {mashPresses} times!");
+            // Debug.Log($"Mashed {mashPresses} times!");
             player.transform.localScale = new Vector3(playerScaleX, playerScaleY, player.transform.localScale.z);
             gooberAnimator.SetTrigger("Mash");
         }
